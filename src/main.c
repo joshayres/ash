@@ -180,11 +180,11 @@ void ash_loop(void)
     char *input;
 
     char cwd[1024];
-
+    char *username = getenv("USER");
     while(1)
     {
         getcwd(cwd, sizeof(cwd));
-        printf("\033[1;92m%s\033[0m >", cwd);
+        printf("\033[1;92m%s %s\033[0m >", username, cwd);
         input = ash_readline();
         args = get_input(input);
 
